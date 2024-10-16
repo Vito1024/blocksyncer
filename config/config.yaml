@@ -1,0 +1,12 @@
+nodes:
+  - id: 6
+    name: ""
+    description: ""
+    rpc_host: ""
+    rpc_port:
+    use_rest: false
+    rpc_user: ""
+    rpc_password: ""
+
+
+sync_interval: 30 # seconds
