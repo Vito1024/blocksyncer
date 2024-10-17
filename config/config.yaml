@@ -1,12 +1,12 @@
 nodes:
   - id: 6
-    name: ""
+    name: "dev"
     description: ""
-    rpc_host: ""
-    rpc_port:
+    rpc_host: "host"
+    rpc_port: 1234
     use_rest: false
-    rpc_user: ""
-    rpc_password: ""
+    rpc_user: "user"
+    rpc_password: "password"
 
 
 sync_interval: 30 # seconds

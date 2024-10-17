@@ -27,7 +27,7 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 
 	sig := make(chan os.Signal, 1)
-	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT, syscall.SIGKILL)
+	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
 	go func() {
 		s := <-sig
 		log.Printf("received signal: %v, start to exit\n", s)
@@ -43,11 +43,12 @@ func main() {
 
 	<-ctx.Done()
 
+	syncerSvc.Shutdown()
 	log.Println("server exited without error :)")
 }
 
 func (d *dep) initInfra() {
 	d.config = config.New(*configPath)
 
-	log.Printf("succeed to load config, nodes count: %d, nodes: \n%s\n", len(d.config.Nodes), d.config.SprintNodeNames())
+	log.Printf("successfully loaded config, nodes count: %d, nodes: \n%s\n", len(d.config.Nodes), d.config.SprintNodeNames())
 }
